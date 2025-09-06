@@ -13,9 +13,7 @@ function calculateRentalCost(days) {
 
   if (days >= longTerm) {
     sum -= longTermDiscount;
-  }
-
-  if (days >= midTermThreshold) {
+  } else if (days >= midTermThreshold) {
     sum -= midTermDiscount;
   }
 
