@@ -4,18 +4,21 @@
  * @return {number}
  */
 function calculateRentalCost(days) {
-  const midTermThreshold = 3;
-  const midTermDiscount = 20;
-  const longTerm = 7;
-  const longTermDiscount = 50;
-  const dailyRate = 40;
-  let sum = days * dailyRate; // if sum will be constant, i won't can change it
+  const MID_TERM_DAYS = 3;
+  const MID_TERM_DISCOUNT = 20;
+  const LONG_TERM_DAYS = 7;
+  const LONG_TERM_DISCOUNT = 50;
+  const DAILY_RATE = 40;
 
-  if (days >= longTerm) {
-    sum -= longTermDiscount;
-  } else if (days >= midTermThreshold) {
-    sum -= midTermDiscount;
+  let discount = 0;
+
+  if (days >= LONG_TERM_DAYS) {
+    discount = LONG_TERM_DISCOUNT;
+  } else if (days >= MID_TERM_DAYS) {
+    discount = MID_TERM_DISCOUNT;
   }
+
+  const sum = days * DAILY_RATE - discount;
 
   return sum;
 }
